@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="en">
+  <!-- Head -->
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JGAStream - Download Movies, Series & Music Free</title>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Watch and download trending movies, series, and music for free on JGAStream. Daily updates in all genres—Action, Romance, Drama, and more." />
+  <meta name="keywords" content="JGAStream, free movies, download series, watch online, stream music, action movies, romantic series, free streaming, latest music" />
+  <meta name="author" content="JGAStream Team" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JGAStream - Watch & Download Latest Movies, Series & Music" />
+  <meta property="og:description" content="Stream or download trending movies, TV shows, and music. 100% free and updated daily!" />
+  <meta property="og:url" content="https://jahkid6i.github.io/jgastream/" />
+  <meta property="og:image" content="https://res.cloudinary.com/dqngoh1gx/image/upload/rsz_2019_collage_poster_xfsheg.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JGAStream - Download Movies, Series & Music Free" />
+  <meta name="twitter:description" content="Watch and download trending movies, series, and music for free. Updated daily with the best entertainment!" />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dqngoh1gx/image/upload/rsz_2019_collage_poster_xfsheg.jpg" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://jahkid6i.github.io/jgastream/" />
+
+  <!-- Favicpn -->
+  <link rel="icon" href="https://jahkid6i.github.io/jgastream/favicon.ico" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JGAStream",
+    "url": "https://jahkid6i.github.io/jgastream/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jahkid6i.github.io/jgastream/?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-theme="light">
+  <header>
+    <svg width="180" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="rgba(0,0,0,0.592)">JGA</text>
+      <text x="70" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="white">Stream</text>
+    </svg>
+    <div id="menuToggle" class="menu-icon">☰</div>
+    <nav id="navLinks">
+      <a href="#" id="filterAll">Home</a>
+      <a href="#" id="filterMovies">Movies</a>
+      <a href="#" id="filterSeries">Series</a>
+      <a href="#" id="filterMusic">Music</a>
+      <a href="contact.html">Request</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>  <main>
+    <div id="searchBar">
+      <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" />
+    </div><div id="tabs">
+  <button class="active" id="tabTrending">Trending</button>
+  <button id="tabRecent">Recently Added</button>
+</div>
+
+<!-- Desktop Banner (728x90) -->
+<div class="ad-desktop">
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'c10e70aae6981f6f2aa504d8161c413e',
+      'format': 'iframe',
+      'height': 90,
+      'width': 728,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/c10e70aae6981f6f2aa504d8161c413e/invoke.js"></script>
+</div>
+
+<!-- Tablet Banner (468x60) -->
+<div class="ad-tablet">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '23abe0a621be4ea8ad3e6d90e5dea64d',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/23abe0a621be4ea8ad3e6d90e5dea64d/invoke.js"></script>
+</div>
+
+<!-- Mobile Banner (320x50) -->
+<div class="ad-mobile">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '748ee82beb1358313ab2124c782e22ae',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/748ee82beb1358313ab2124c782e22ae/invoke.js"></script>
+</div>
+
+<style>
+  /* Hide all ads */
+  .ad-desktop, .ad-tablet, .ad-mobile {
+    display: none;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  /* Desktop (large screens) */
+  @media (min-width: 1025px) {
+    .ad-desktop { display: flex; }
+  }
+
+  /* Tablet screens */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .ad-tablet { display: flex; }
+  }
+
+  /* Mobile devices */
+  @media (max-width: 768px) {
+    .ad-mobile { display: flex; }
+  }
+</style>
+
+<div id="genreFilters">
+  <button data-genre="All" class="genreBtn active">All</button>
+  <button data-genre="Action" class="genreBtn">Action</button>
+  <button data-genre="Drama" class="genreBtn">Drama</button>
+  <button data-genre="History" class="genreBtn">History</button>
+  <button data-genre="Horror" class="genreBtn">Horror</button>
+  <button data-genre="Romance" class="genreBtn">Romance</button>
+  <button data-genre="Crime" class="genreBtn">Crime</button>
+  <button data-genre="Thriller" class="genreBtn">Thriller</button>
+  <button data-genre="Comedy" class="genreBtn">Comedy</button>
+  <button data-genre="Adventure" class="genreBtn">Adventure</button>
+  <button data-genre="Mystery" class="genreBtn">Mystery</button>
+  <button data-genre="Animation" class="genreBtn">Animation</button>
+</div>
+
+<div id="contentGrid" aria-live="polite" aria-label="Content List">
+  <!-- Cards go here -->
+</div>
+
+<!-- welcome popup -->
+<div id="welcomePopup" style="
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+">
+  🎬 Welcome to <strong>JGAStream</strong> – Watch & Download Free!
+</div>
+  </main>  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import {
+      getFirestore, collection, query, orderBy, onSnapshot
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJOb0p6KHwNXCFddQJJ1vk09oqozQjvNw",
+      authDomain: "jahkid6i-e51aa.firebaseapp.com",
+      projectId: "jahkid6i-e51aa",
+      storageBucket: "jahkid6i-e51aa.appspot.com",
+      messagingSenderId: "849738273147",
+      appId: "1:849738273147:web:bff891dd76502870a36dde"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const searchInput = document.getElementById("searchInput");
+    const contentGrid = document.getElementById("contentGrid");
+    const tabTrending = document.getElementById("tabTrending");
+    const tabRecent = document.getElementById("tabRecent");
+    const filterAll = document.getElementById("filterAll");
+    const filterMovies = document.getElementById("filterMovies");
+    const filterSeries = document.getElementById("filterSeries");
+    const filterMusic = document.getElementById("filterMusic");
+
+    const genreFilters = document.getElementById("genreFilters");
+
+    let mediaData = [];
+    let currentTab = "trending";
+    let currentTypeFilter = "all"; // all, movie, series, music
+    let currentGenre = "All";
+    const ninetyTwoHoursMs = 92 * 60 * 60 * 1000;
+
+    function subscribeMedia() {
+      const mediaRef = collection(db, "media");
+      const q = query(mediaRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        mediaData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+          timestamp: doc.data().timestamp?.toDate?.() || new Date(0),
+          downloads: doc.data().downloads || "x"
+        }));
+        filterAndRender();
+      });
+    }
+
+    function filterAndRender() {
+      const searchVal = searchInput.value.trim().toLowerCase();
+      let filtered = mediaData.filter(m => {
+        const matchesTitle = m.title.toLowerCase().includes(searchVal);
+        const matchesType = currentTypeFilter === "all" || m.type === currentTypeFilter;
+        const matchesGenre = currentTypeFilter === "music" || currentGenre === "All" || m.genre?.toLowerCase() === currentGenre.toLowerCase();
+        return matchesTitle && matchesType && matchesGenre;
+      });
+
+      if (currentTab === "recent") {
+        const cutoff = new Date(Date.now() - ninetyTwoHoursMs);
+        filtered = filtered.filter(m => m.timestamp >= cutoff);
+        filtered.sort((a, b) => b.timestamp - a.timestamp);
+      } else {
+        filtered.sort((a, b) => b.downloads - a.downloads);
+      }
+
+      renderGrid(filtered);
+    }
+
+    function renderGrid(list) {
+      contentGrid.innerHTML = list.length ? "" : `<p style='color:#aaa; text-align:center;'>Nothing found.</p>`;
+      list.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.addEventListener("click", () => {
+  if (item.type === "music") {
+    window.location.href = `music.html?id=${item.id}`;
+  } else {
+    window.location.href = `watch.html?id=${item.id}`;
+  }
+});
+        
+
+        const img = document.createElement("img");
+        img.src = item.posterUrl || "https://via.placeholder.com/300x450?text=No+Image";
+        img.alt = item.title;
+
+        const content = document.createElement("div");
+        content.className = "card-content";
+
+        const title = document.createElement("h3");
+        title.className = "card-title";
+        title.textContent = item.title;
+
+        const type = document.createElement("p");
+        type.className = "card-type";
+        type.textContent = `${item.type.charAt(0).toUpperCase() + item.type.slice(1)} • ${item.genre || 'Unknown Genre'}`;
+
+        const count = document.createElement("p");
+        count.className = "downloads";
+        count.textContent = `${item.downloads} downloads`;
+
+        content.append(title, type, count);
+        card.append(img, content);
+        contentGrid.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll(".genreBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".genreBtn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentGenre = btn.getAttribute("data-genre");
+        filterAndRender();
+      });
+    });
+
+    tabTrending.addEventListener("click", () => {
+      currentTab = "trending";
+      tabTrending.classList.add("active");
+      tabRecent.classList.remove("active");
+      filterAndRender();
+    });
+
+    tabRecent.addEventListener("click", () => {
+      currentTab = "recent";
+      tabRecent.classList.add("active");
+      tabTrending.classList.remove("active");
+      filterAndRender();
+    });
+
+    filterAll.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentTypeFilter = "all";
+      genreFilters.style.display = "flex";
+      filterAndRender();
+    });
+
+    filterMovies.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentTypeFilter = "movie";
+      genreFilters.style.display = "flex";
+      filterAndRender();
+    });
+
+    filterSeries.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentTypeFilter = "series";
+      genreFilters.style.display = "flex";
+      filterAndRender();
+    });
+
+    filterMusic.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentTypeFilter = "music";
+      genreFilters.style.display = "none";
+      filterAndRender();
+    });
+
+    searchInput.addEventListener("input", filterAndRender);
+    subscribeMedia();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+  <script>
+  window.addEventListener('load', function () {
+    const popup = document.getElementById('welcomePopup');
+    popup.style.display = 'block';
+    
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 3000); // hides after 3 seconds
+  });
+</script>
+  <script type='text/javascript' src='//frozenbiopsyskate.com/eb/a8/04/eba804afa89e38e05f25507c6d76c9f1.js'></script>
+  </body>
+    </html>
