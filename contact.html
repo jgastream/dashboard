@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request | JGAStream</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Form container to match card style on main page */
+    .request-card {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #222; /* dark card background */
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      padding: 25px 20px;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .request-card h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      color: #eee;
+    }
+    .request-card input,
+    .request-card textarea {
+      width: 100%;
+      background: #333;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #eee;
+      font-family: 'Segoe UI', sans-serif;
+      resize: vertical;
+    }
+    .request-card input::placeholder,
+    .request-card textarea::placeholder {
+      color: #aaa;
+    }
+    .request-card button {
+      width: 100%;
+      background: #007bff;
+      border: none;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .request-card button:hover {
+      background: #0056b3;
+    }
+    #requestStatus {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+      color: lightgreen;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .request-card {
+        margin: 25px 15px;
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- Header (same as main page) -->
+  <header>
+    <svg width="180" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.8)">JGA</text>
+      <text x="70" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="#007bff">Stream</text>
+    </svg>
+    <div id="menuToggle" class="menu-icon">☰</div>
+    <nav id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">New release</a>
+    </nav>
+  </header>
+<!-- Desktop Banner (728x90) -->
+<div class="ad-desktop">
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'c10e70aae6981f6f2aa504d8161c413e',
+      'format': 'iframe',
+      'height': 90,
+      'width': 728,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/c10e70aae6981f6f2aa504d8161c413e/invoke.js"></script>
+</div>
+
+<!-- Tablet Banner (468x60) -->
+<div class="ad-tablet">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '23abe0a621be4ea8ad3e6d90e5dea64d',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/23abe0a621be4ea8ad3e6d90e5dea64d/invoke.js"></script>
+</div>
+
+<!-- Mobile Banner (320x50) -->
+<div class="ad-mobile">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '748ee82beb1358313ab2124c782e22ae',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/748ee82beb1358313ab2124c782e22ae/invoke.js"></script>
+</div>
+
+<style>
+  /* Hide all ads by default */
+  .ad-desktop, .ad-tablet, .ad-mobile {
+    display: none;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  /* Desktop (large screens) */
+  @media (min-width: 1025px) {
+    .ad-desktop { display: flex; }
+  }
+
+  /* Tablet screens */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .ad-tablet { display: flex; }
+  }
+
+  /* Mobile devices */
+  @media (max-width: 768px) {
+    .ad-mobile { display: flex; }
+  }
+</style>
+  <!-- Request Form -->
+  <main>
+    <div class="request-card">
+      <h2>Request a Movie, Series, or Music</h2>
+      <form id="requestForm">
+        <input type="text" id="requestName" placeholder="Your Name (optional)" />
+        <input type="email" id="requestEmail" placeholder="Your Email (optional)" />
+        <textarea id="requestMessage" placeholder="What should we upload for you?" required></textarea>
+        <button type="submit">Send Request</button>
+      </form>
+      <p id="requestStatus"></p>
+    </div>
+  </main>
+
+  <!-- Firebase + script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJOb0p6KHwNXCFddQJJ1vk09oqozQjvNw",
+      authDomain: "jahkid6i-e51aa.firebaseapp.com",
+      projectId: "jahkid6i-e51aa",
+      storageBucket: "jahkid6i-e51aa.appspot.com",
+      messagingSenderId: "849738273147",
+      appId: "1:849738273147:web:bff891dd76502870a36dde"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    const form = document.getElementById("requestForm");
+    const status = document.getElementById("requestStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("requestName").value.trim();
+      const email = document.getElementById("requestEmail").value.trim();
+      const message = document.getElementById("requestMessage").value.trim();
+
+      if (!message) {
+        status.textContent = "Message cannot be empty.";
+        status.style.color = "orange";
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          name,
+          email,
+          message,
+          timestamp: serverTimestamp()
+        });
+        status.textContent = "Request sent successfully!";
+        status.style.color = "lightgreen";
+        form.reset();
+      } catch (error) {
+        status.textContent = "Failed to send request.";
+        status.style.color = "red";
+        console.error(error);
+      }
+    });
+  </script>
+     <script type='text/javascript' src='//frozenbiopsyskate.com/eb/a8/04/eba804afa89e38e05f25507c6d76c9f1.js'></script>
+</body>
+    </html>
