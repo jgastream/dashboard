@@ -72,7 +72,7 @@
   <button id="tabRecent">Recently Added</button>
 </div>
 
-<
+
 <div id="genreFilters">
   <button data-genre="All" class="genreBtn active">All</button>
   <button data-genre="Action" class="genreBtn">Action</button>
@@ -98,7 +98,7 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #black;
+  background: black;
   color: #fff;
   padding: 12px 25px;
   border-radius: 8px;
@@ -107,9 +107,11 @@
   display: none;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 ">
-  🎬 Welcome to <strong>JGAStream</strong> – Click request button to request your favorite movie/series. and we'll upload it shortly.
+  <strong>Can’t find your favorite movie or series? Click the request button and we’ll upload it shortly.
+  </strong>
 </div>
-  </main>  <script type="module">
+  </main>  
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
     import {
       getFirestore, collection, query, orderBy, onSnapshot
@@ -293,7 +295,7 @@
     
     setTimeout(() => {
       popup.style.display = 'none';
-    }, 10000); // hides after 3 seconds
+    }, 6000); 
   });
 </script>
 </body>
