@@ -9,7 +9,72 @@
 </head>
 <body>
   <header>JGAStream</header>
+  
+<!-- 📺 Desktop Banner (728x90) -->
+<div class="ad-desktop">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '858056007238341cafa88ad3f4e045c6',
+      'format': 'iframe',
+      'height': 90,
+      'width': 728,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/858056007238341cafa88ad3f4e045c6/invoke.js"></script>
+</div>
 
+<!--  Tablet Banner (468x60) -->
+<div class="ad-tablet">
+  <script type="text/javascript">
+    atOptions = {
+      'key': '06e08194387664a451af59bfcfc33955',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/06e08194387664a451af59bfcfc33955/invoke.js"></script>
+</div>
+
+<!-- 📱 Mobile Banner (320x50) -->
+<div class="ad-mobile">
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'c98a4d21abc8339ea6defe4e841b6cb2',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//frozenbiopsyskate.com/c98a4d21abc8339ea6defe4e841b6cb2/invoke.js"></script>
+</div>
+
+<!--  Social Bar (Works automatically) -->
+<script type="text/javascript" src="//frozenbiopsyskate.com/b2/96/72/b296724852015eecdecfb74aba9ffe81.js"></script>
+
+<!--  Styles for responsive control -->
+<style>
+  .ad-desktop, .ad-tablet, .ad-mobile {
+    display: none;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  @media (min-width: 1025px) {
+    .ad-desktop { display: flex; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .ad-tablet { display: flex; }
+  }
+
+  @media (max-width: 768px) {
+    .ad-mobile { display: flex; }
+  }
+</style>
 <div class="container">
   <a href="index.html" class="back">&larr; Back to Home</a>
 
@@ -193,6 +258,5 @@ window.reportMedia = async () => {
 };
 
   </script>
-    <script type='text/javascript' src='//frozenbiopsyskate.com/eb/a8/04/eba804afa89e38e05f25507c6d76c9f1.js'></script>
 </body>
     </html>
