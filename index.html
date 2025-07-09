@@ -98,7 +98,7 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: black;
+  background: 007bff;
   color: #fff;
   padding: 12px 25px;
   border-radius: 8px;
@@ -144,7 +144,7 @@
     let currentTab = "trending";
     let currentTypeFilter = "all"; // all, movie, series, music
     let currentGenre = "All";
-    const ninetyTwoHoursMs = 92 * 60 * 60 * 1000;
+    const ninetyTwoHoursMs = 24 * 60 * 60 * 1000;
 
     function subscribeMedia() {
       const mediaRef = collection(db, "media");
@@ -154,7 +154,7 @@
           id: doc.id,
           ...doc.data(),
           timestamp: doc.data().timestamp?.toDate?.() || new Date(0),
-          downloads: doc.data().downloads || "x"
+          downloads: doc.data().downloads || "_"
         }));
         filterAndRender();
       });
