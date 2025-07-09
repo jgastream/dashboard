@@ -9,8 +9,29 @@
 </head>
 <body>
   <header>JGAStream</header>
-  
-<!-- 📺 Desktop Banner (728x90) -->
+<div class="container">
+  <a href="index.html" class="back">&larr; Back to Home</a>
+
+  <h1 id="title">Loading...</h1>
+  <p id="description" class="description"></p>
+  <p class="meta"><strong>Genre:</strong> <span id="genre">--</span></p>
+  <p class="meta"><strong>Uploaded:</strong> <span id="uploadDate">--</span></p>
+  <p class="meta"><strong>Views:</strong> <span id="views">0</span></p>
+
+  <div style="display: flex; gap: 10px; margin: 1rem 0;">
+    <button onclick="shareMedia()" style="padding: 6px 14px; background: #007bff; color: #fff; border: none; border-radius: 5px;">🔗 Share</button>
+    <button onclick="reportMedia()" style="padding: 6px 14px; background: #dc3545; color: #fff; border: none; border-radius: 5px;">🚩 Report</button>
+  </div>
+
+  <div id="trailerContainer"></div>
+
+  <div id="downloadSection">
+    <h2>Download Links</h2>
+    <ul id="downloadList"></ul>
+  </div>
+</div>
+
+  <!-- 📺 Desktop Banner (728x90) -->
 <div class="ad-desktop">
   <script type="text/javascript">
     atOptions = {
@@ -24,7 +45,7 @@
   <script type="text/javascript" src="//frozenbiopsyskate.com/858056007238341cafa88ad3f4e045c6/invoke.js"></script>
 </div>
 
-<!--  Tablet Banner (468x60) -->
+<!-- 💻 Tablet Banner (468x60) -->
 <div class="ad-tablet">
   <script type="text/javascript">
     atOptions = {
@@ -52,10 +73,10 @@
   <script type="text/javascript" src="//frozenbiopsyskate.com/c98a4d21abc8339ea6defe4e841b6cb2/invoke.js"></script>
 </div>
 
-<!--  Social Bar (Works automatically) -->
+<!-- Social Bar (Works automatically) -->
 <script type="text/javascript" src="//frozenbiopsyskate.com/b2/96/72/b296724852015eecdecfb74aba9ffe81.js"></script>
 
-<!--  Styles for responsive control -->
+<!-- Styles for responsive control -->
 <style>
   .ad-desktop, .ad-tablet, .ad-mobile {
     display: none;
@@ -75,27 +96,6 @@
     .ad-mobile { display: flex; }
   }
 </style>
-<div class="container">
-  <a href="index.html" class="back">&larr; Back to Home</a>
-
-  <h1 id="title">Loading...</h1>
-  <p id="description" class="description"></p>
-  <p class="meta"><strong>Genre:</strong> <span id="genre">--</span></p>
-  <p class="meta"><strong>Uploaded:</strong> <span id="uploadDate">--</span></p>
-  <p class="meta"><strong>Views:</strong> <span id="views">0</span></p>
-
-  <div style="display: flex; gap: 10px; margin: 1rem 0;">
-    <button onclick="shareMedia()" style="padding: 6px 14px; background: #007bff; color: #fff; border: none; border-radius: 5px;">🔗 Share</button>
-    <button onclick="reportMedia()" style="padding: 6px 14px; background: #dc3545; color: #fff; border: none; border-radius: 5px;">🚩 Report</button>
-  </div>
-
-  <div id="trailerContainer"></div>
-
-  <div id="downloadSection">
-    <h2>Download Links</h2>
-    <ul id="downloadList"></ul>
-  </div>
-</div>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
     import {
