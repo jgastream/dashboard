@@ -219,7 +219,7 @@
           id: doc.id,
           ...doc.data(),
           timestamp: doc.data().timestamp?.toDate?.() || new Date(0),
-          downloads: doc.data().downloads || "0"
+          downloads: doc.data().downloads || "_"
         }));
         filterAndRender();
       });
