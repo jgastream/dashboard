@@ -71,7 +71,6 @@
   <button class="active" id="tabTrending">Trending</button>
   <button id="tabRecent">Recently Added</button>
 </div>
-
 <!-- 📺 Desktop Banner (728x90) -->
 <div class="ad-desktop">
   <script type="text/javascript">
@@ -155,6 +154,9 @@
 <div id="contentGrid" aria-live="polite" aria-label="Content List">
   <!-- Cards go here -->
 </div>
+<div id="contentGrid" aria-live="polite" aria-label="Content List">
+  <!-- Cards go here -->
+</div>
 
 <!-- welcome popup -->
 <div id="welcomePopup" style="
@@ -174,8 +176,7 @@
   <strong>Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.
   </strong>
 </div>
-  </main>  
-  <script type="module">
+  </main>  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
     import {
       getFirestore, collection, query, orderBy, onSnapshot
@@ -208,7 +209,7 @@
     let currentTab = "trending";
     let currentTypeFilter = "all"; // all, movie, series, music
     let currentGenre = "All";
-    const ninetyTwoHoursMs = 24 * 60 * 60 * 1000;
+    const ninetyTwoHoursMs = 92 * 60 * 60 * 1000;
 
     function subscribeMedia() {
       const mediaRef = collection(db, "media");
@@ -218,7 +219,7 @@
           id: doc.id,
           ...doc.data(),
           timestamp: doc.data().timestamp?.toDate?.() || new Date(0),
-          downloads: doc.data().downloads || "_"
+          downloads: doc.data().downloads || "0"
         }));
         filterAndRender();
       });
@@ -258,9 +259,19 @@
 });
         
 
-        const img = document.createElement("img");
-        img.src = item.posterUrl || "https://via.placeholder.com/300x450?text=No+Image";
-        img.alt = item.title;
+        let mediaVisual;
+if (item.posterUrl) {
+  mediaVisual = document.createElement("img");
+  mediaVisual.src = item.posterUrl;
+  mediaVisual.alt = item.title;
+} else {
+  mediaVisual = document.createElement("div");
+  mediaVisual.className = "fallback-poster";
+  mediaVisual.innerHTML = `
+    <div class="play-icon">&#9658;</div>
+    <div class="fallback-text">JGAstream</div>
+  `;
+}
 
         const content = document.createElement("div");
         content.className = "card-content";
@@ -278,7 +289,7 @@
         count.textContent = `${item.downloads} downloads`;
 
         content.append(title, type, count);
-        card.append(img, content);
+        card.append(mediaVisual, content);
         contentGrid.appendChild(card);
       });
     }
@@ -362,5 +373,5 @@
     }, 6000); 
   });
   </script>
-</body>
-    </html>
+  </body>
+</html>
