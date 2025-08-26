@@ -49,9 +49,9 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
   <style>
-    
+    /* Added for Music Mode Toggle button */
     .mode-toggle {
-      background: #007bff;
+      background: red;
       color: white;
       padding: 6px 14px;
       border-radius: 8px;
@@ -82,7 +82,7 @@
       <a href="#" id="filterAll">Home</a>
       <a href="#" id="filterMovies">Movies</a>
       <a href="#" id="filterSeries">Series</a>
-      <a href="#" id="filterMusic">Video Music</a>
+      <a href="#" id="filterMusic">Music</a>
       <a href="contact.html">Request</a>
       <a href="about.html">About Us</a>
     </nav>
@@ -158,7 +158,7 @@
     .ad-mobile { display: flex; }
   }
 </style>
-    
+
     <div id="genreFilters">
       <button data-genre="All" class="genreBtn active">All</button>
       <button data-genre="Action" class="genreBtn">Action</button>
@@ -238,9 +238,10 @@
 
     modeToggleBtn.addEventListener("click", () => {
       isMusicMode = !isMusicMode;
-      modeToggleBtn.textContent = isMusicMode ? "⬅️ Main Mode" : "🎵 Audi Mode";
+      modeToggleBtn.textContent = isMusicMode ? "⬅️ Main Mode" : "🎵 Audio Mode";
 
-      if (isMusicMode)  
+      if (isMusicMode) {
+        
         filterAll.style.display = "none";
         filterMovies.style.display = "none";
         filterSeries.style.display = "none";
@@ -281,7 +282,7 @@
       let filtered = mediaData.filter(m => {
         const matchesTitle = m.title.toLowerCase().includes(searchVal);
 
-      
+        
         if (isMusicMode) {
           if (m.type !== "music") return false;
         } else {
