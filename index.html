@@ -1,182 +1,43 @@
-<!DOCTYPE html><html lang="en">
-  <!-- Head -->
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JGAStream - Download Movies, Series & Music Free</title>
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Watch and download trending movies, series, and music for free on JGAStream. Daily updates in all genres—Action, Romance, Drama, and more." />
-  <meta name="keywords" content="JGAStream, free movies, download series, watch online, stream music, action movies, romantic series, free streaming, latest music" />
-  <meta name="author" content="JGAStream Team" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="JGAStream - Watch & Download Latest Movies, Series & Music" />
-  <meta property="og:description" content="Stream or download trending movies, TV shows, and music. 100% free and updated daily!" />
-  <meta property="og:url" content="https://jgastream.github.io/dashboard/" />
-  <meta property="og:image" content="https://res.cloudinary.com/dqngoh1gx/image/upload/rsz_2019_collage_poster_xfsheg.jpg" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JGAStream - Download Movies, Series & Music Free" />
-  <meta name="twitter:description" content="Watch and download trending movies, series, and music for free. Updated daily with the best entertainment!" />
-  <meta name="twitter:image" content="https://res.cloudinary.com/dqngoh1gx/image/upload/rsz_2019_collage_poster_xfsheg.jpg" />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://jgastream.github.io/dashboard/" />
-
-  <!-- Favicpn -->
-  <link rel="icon" href="https://jgastream.github.io/dashboard/favicon.ico" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "JGAStream",
-    "url": "https://jgastream.github.io/dashboard/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://jgastream.github.io/dashboard?search={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <title>JGAStream - Watch</title>
+  <link rel="stylesheet" href="watch.css" />
 </head>
+<body>
+  <header>JGAStream</header>
 
-<body data-theme="light">
-  <header>
-    <svg width="180" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
-      <text x="0" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="rgba(0,0,0,0.592)">JGA</text>
-      <text x="70" y="28" font-family="Segoe UI, sans-serif" font-size="28" font-weight="bold" fill="white">Stream</text>
-    </svg>
-    <div id="menuToggle" class="menu-icon">☰</div>
-    <nav id="navLinks">
-      <a href="#" id="filterAll">Home</a>
-      <a href="#" id="filterMovies">Movies</a>
-      <a href="#" id="filterSeries">Series</a>
-      <a href="#" id="filterMusic">Music</a>
-      <a href="contact.html">Request</a>
-      <a href="about.html">About Us</a>
-    </nav>
-  </header>  <main>
-    <div id="searchBar">
-      <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" />
-    </div><div id="tabs">
-  <button class="active" id="tabTrending">Trending</button>
-  <button id="tabRecent">Recently Added</button>
-</div>
-<!-- 📺 Desktop Banner (728x90) -->
-<div class="ad-desktop">
-  <script type="text/javascript">
-    atOptions = {
-      'key': '858056007238341cafa88ad3f4e045c6',
-      'format': 'iframe',
-      'height': 90,
-      'width': 728,
-      'params': {}
-    };
-  </script>
-  <script type="text/javascript" src="//frozenbiopsyskate.com/858056007238341cafa88ad3f4e045c6/invoke.js"></script>
-</div>
+  <div class="container">
+    <a href="index.html" class="back">&larr; Back to Home</a>
+    <h1 id="title">Loading...</h1>
+    <p id="description" class="description"></p>
+    <p class="meta"><strong>Genre:</strong> <span id="genre">--</span></p>
+    <p class="meta"><strong>Uploaded:</strong> <span id="uploadDate">--</span></p>
+    <p class="meta"><strong>Views:</strong> <span id="views">0</span></p>
 
-<!-- Tablet Banner (468x60) -->
-<div class="ad-tablet">
-  <script type="text/javascript">
-    atOptions = {
-      'key': '06e08194387664a451af59bfcfc33955',
-      'format': 'iframe',
-      'height': 60,
-      'width': 468,
-      'params': {}
-    };
-  </script>
-  <script type="text/javascript" src="//frozenbiopsyskate.com/06e08194387664a451af59bfcfc33955/invoke.js"></script>
-</div>
+    <div style="display: flex; gap: 10px; margin: 1rem 0;">
+      <button onclick="shareMedia()" style="padding: 6px 14px; background: #007bff; color: #fff; border: none; border-radius: 5px;">🔗 Share</button>
+      <button onclick="reportMedia()" style="padding: 6px 14px; background: #dc3545; color: #fff; border: none; border-radius: 5px;">🚩 Report</button>
+    </div>
 
-<!-- 📱 Mobile Banner (320x50) -->
-<div class="ad-mobile">
-  <script type="text/javascript">
-    atOptions = {
-      'key': 'c98a4d21abc8339ea6defe4e841b6cb2',
-      'format': 'iframe',
-      'height': 50,
-      'width': 320,
-      'params': {}
-    };
-  </script>
-  <script type="text/javascript" src="//frozenbiopsyskate.com/c98a4d21abc8339ea6defe4e841b6cb2/invoke.js"></script>
-</div>
+    <div id="trailerContainer"></div>
 
-<!-- Styles for responsive control -->
-<style>
-  .ad-desktop, .ad-tablet, .ad-mobile {
-    display: none;
-    justify-content: center;
-    margin: 15px 0;
-  }
+    <div id="downloadSection">
+      <h2>Download Links</h2>
+      <ul id="downloadList"></ul>
+    </div>
+  </div>
 
-  @media (min-width: 1025px) {
-    .ad-desktop { display: flex; }
-  }
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .ad-tablet { display: flex; }
-  }
 
-  @media (max-width: 768px) {
-    .ad-mobile { display: flex; }
-  }
-</style>
-<div id="genreFilters">
-  <button data-genre="All" class="genreBtn active">All</button>
-  <button data-genre="Action" class="genreBtn">Action</button>
-  <button data-genre="Drama" class="genreBtn">Drama</button>
-  <button data-genre="History" class="genreBtn">History</button>
-  <button data-genre="Horror" class="genreBtn">Horror</button>
-  <button data-genre="Romance" class="genreBtn">Romance</button>
-  <button data-genre="Crime" class="genreBtn">Crime</button>
-  <button data-genre="Thriller" class="genreBtn">Thriller</button>
-  <button data-genre="Comedy" class="genreBtn">Comedy</button>
-  <button data-genre="Adventure" class="genreBtn">Adventure</button>
-  <button data-genre="Mystery" class="genreBtn">Mystery</button>
-  <button data-genre="Animation" class="genreBtn">Animation</button>
-</div>
-
-<div id="contentGrid" aria-live="polite" aria-label="Content List">
-  <!-- Cards go here -->
-</div>
-<div id="contentGrid" aria-live="polite" aria-label="Content List">
-  <!-- Cards go here -->
-</div>
-
-<!-- welcome popup -->
-<div id="welcomePopup" style="
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: black;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-size: 16px;
-  z-index: 9999;
-  display: none;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-">
-  <strong>Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.
-  </strong>
-</div>
-  </main>  <script type="module">
+  <!-- Firebase Logic -->
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
     import {
-      getFirestore, collection, query, orderBy, onSnapshot
+      getFirestore, doc, getDoc, updateDoc, increment,
+      collection, addDoc, serverTimestamp
     } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -191,184 +52,156 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    const searchInput = document.getElementById("searchInput");
-    const contentGrid = document.getElementById("contentGrid");
-    const tabTrending = document.getElementById("tabTrending");
-    const tabRecent = document.getElementById("tabRecent");
-    const filterAll = document.getElementById("filterAll");
-    const filterMovies = document.getElementById("filterMovies");
-    const filterSeries = document.getElementById("filterSeries");
-    const filterMusic = document.getElementById("filterMusic");
+    const params = new URLSearchParams(window.location.search);
+    const mediaId = params.get("id");
 
-    const genreFilters = document.getElementById("genreFilters");
+    const titleEl = document.getElementById("title");
+    const descEl = document.getElementById("description");
+    const genreEl = document.getElementById("genre");
+    const uploadEl = document.getElementById("uploadDate");
+    const viewsEl = document.getElementById("views");
+    const trailerContainer = document.getElementById("trailerContainer");
+    const downloadList = document.getElementById("downloadList");
 
-    let mediaData = [];
-    let currentTab = "trending";
-    let currentTypeFilter = "all"; // all, movie, series, music
-    let currentGenre = "All";
-    const ninetyTwoHoursMs = 24 * 60 * 60 * 1000;
+    async function loadMedia() {
+      if (!mediaId) return;
 
-    function subscribeMedia() {
-      const mediaRef = collection(db, "media");
-      const q = query(mediaRef, orderBy("timestamp", "desc"));
-      onSnapshot(q, (snapshot) => {
-        mediaData = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-          timestamp: doc.data().timestamp?.toDate?.() || new Date(0),
-          downloads: doc.data().downloads || "0"
-        }));
-        filterAndRender();
-      });
-    }
+      const docRef = doc(db, "media", mediaId);
+      const snapshot = await getDoc(docRef);
 
-    function filterAndRender() {
-      const searchVal = searchInput.value.trim().toLowerCase();
-      let filtered = mediaData.filter(m => {
-        const matchesTitle = m.title.toLowerCase().includes(searchVal);
-        const matchesType = currentTypeFilter === "all" || m.type === currentTypeFilter;
-        const matchesGenre = currentTypeFilter === "music" || currentGenre === "All" || m.genre?.toLowerCase() === currentGenre.toLowerCase();
-        return matchesTitle && matchesType && matchesGenre;
-      });
-
-      if (currentTab === "recent") {
-        const cutoff = new Date(Date.now() - ninetyTwoHoursMs);
-        filtered = filtered.filter(m => m.timestamp >= cutoff);
-        filtered.sort((a, b) => b.timestamp - a.timestamp);
-      } else {
-        filtered.sort((a, b) => b.downloads - a.downloads);
+      if (!snapshot.exists()) {
+        titleEl.textContent = "Media not found";
+        return;
       }
 
-      renderGrid(filtered);
+      const data = snapshot.data();
+      titleEl.textContent = data.title;
+      descEl.textContent = data.description || "No description available.";
+      genreEl.textContent = (Array.isArray(data.genre) ? data.genre.join(", ") : data.genre) || "Unknown";
+      uploadEl.textContent = data.timestamp?.toDate?.().toLocaleString() || "Unknown";
+      viewsEl.textContent = data.downloads || 0;
+
+      let trailerId = data.trailerId || await fetchYouTubeTrailer(data.title);
+      if (trailerId) {
+        trailerContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${trailerId}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+      } else {
+        trailerContainer.innerHTML = `<p style="color:#888">No trailer found.</p>`;
+      }
+
+      // Render download links
+      downloadList.innerHTML = "";
+
+      if (data.type === "movie" && Array.isArray(data.urls)) {
+        const qualityLabels = ["480p", "720p", "1080p", "4K"];
+        if (data.urls.length === 1) {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = data.urls[0];
+          a.target = "_blank";
+          a.textContent = "Download";
+          a.addEventListener("click", () => incrementDownload(mediaId));
+          li.appendChild(a);
+          downloadList.appendChild(li);
+        } else {
+          data.urls.forEach((url, i) => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = url;
+            a.target = "_blank";
+            const label = qualityLabels[i] || `Quality ${i + 1}`;
+            a.textContent = `Download ${label}`;
+            a.addEventListener("click", () => incrementDownload(mediaId));
+            li.appendChild(a);
+            downloadList.appendChild(li);
+          });
+        }
+      } else if (data.type === "series" && Array.isArray(data.seasons)) {
+        data.seasons.forEach((season, i) => {
+          const header = document.createElement("li");
+          header.textContent = `▶️ Season ${season.season || i + 1}`;
+          header.style.fontWeight = "bold";
+          header.style.cursor = "pointer";
+          header.style.marginTop = "0.8rem";
+
+          const epList = document.createElement("ul");
+          epList.style.marginLeft = "1.2rem";
+          epList.style.display = "none";
+
+          season.episodes?.forEach((epUrl, j) => {
+            const epLi = document.createElement("li");
+            const epA = document.createElement("a");
+            epA.href = epUrl;
+            epA.target = "_blank";
+            epA.textContent = `Episode ${j + 1}`;
+            epA.addEventListener("click", () => incrementDownload(mediaId));
+            epLi.appendChild(epA);
+            epList.appendChild(epLi);
+          });
+
+          header.addEventListener("click", () => {
+            epList.style.display = epList.style.display === "none" ? "block" : "none";
+          });
+
+          downloadList.appendChild(header);
+          downloadList.appendChild(epList);
+        });
+      } else {
+        downloadList.innerHTML = "<li>No download links found.</li>";
+      }
     }
 
-    function renderGrid(list) {
-      contentGrid.innerHTML = list.length ? "" : `<p style='color:#aaa; text-align:center;'>Nothing found.</p>`;
-      list.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.addEventListener("click", () => {
-  if (item.type === "music") {
-    window.location.href = `music.html?id=${item.id}`;
-  } else {
-    window.location.href = `watch.html?id=${item.id}`;
-  }
-});
-        
-
-        let mediaVisual;
-if (item.posterUrl) {
-  mediaVisual = document.createElement("img");
-  mediaVisual.src = item.posterUrl;
-  mediaVisual.alt = item.title;
-} else {
-  mediaVisual = document.createElement("div");
-  mediaVisual.className = "fallback-poster";
-  mediaVisual.innerHTML = `
-    <div class="play-icon">&#9658;</div>
-    <div class="fallback-text">JGAstream</div>
-  `;
-}
-
-        const content = document.createElement("div");
-        content.className = "card-content";
-
-        const title = document.createElement("h3");
-        title.className = "card-title";
-        title.textContent = item.title;
-
-        const type = document.createElement("p");
-        type.className = "card-type";
-        type.textContent = `${item.type.charAt(0).toUpperCase() + item.type.slice(1)} • ${item.genre || 'Unknown Genre'}`;
-
-        const count = document.createElement("p");
-        count.className = "downloads";
-        count.textContent = `${item.downloads} downloads`;
-
-        content.append(title, type, count);
-        card.append(mediaVisual, content);
-        contentGrid.appendChild(card);
-      });
+    async function incrementDownload(id) {
+      try {
+        const docRef = doc(db, "media", id);
+        await updateDoc(docRef, { downloads: increment(1) });
+        const snap = await getDoc(docRef);
+        viewsEl.textContent = snap.data().downloads || 0;
+      } catch (err) {
+        console.error("Failed to increment download count:", err);
+      }
     }
 
-    document.querySelectorAll(".genreBtn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".genreBtn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentGenre = btn.getAttribute("data-genre");
-        filterAndRender();
-      });
-    });
+    async function fetchYouTubeTrailer(title) {
+      const apiKey = "AIzaSyD9cgIY4Xyrc55c-ba8C5IwFM9mDbwCkWo";
+      const query = encodeURIComponent(`${title} official trailer`);
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${query}&key=${apiKey}`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        return data.items?.[0]?.id?.videoId || null;
+      } catch (err) {
+        console.error("YouTube trailer fetch failed:", err);
+        return null;
+      }
+    }
 
-    tabTrending.addEventListener("click", () => {
-      currentTab = "trending";
-      tabTrending.classList.add("active");
-      tabRecent.classList.remove("active");
-      filterAndRender();
-    });
+    // Share logic
+    window.shareMedia = () => {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url)
+        .then(() => alert("Link copied to clipboard!"))
+        .catch(() => alert("Failed to copy link."));
+    };
 
-    tabRecent.addEventListener("click", () => {
-      currentTab = "recent";
-      tabRecent.classList.add("active");
-      tabTrending.classList.remove("active");
-      filterAndRender();
-    });
+    // Report logic
+    window.reportMedia = async () => {
+      const reason = prompt("Why are you reporting this content?");
+      if (!reason) return;
 
-    filterAll.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentTypeFilter = "all";
-      genreFilters.style.display = "flex";
-      filterAndRender();
-    });
+      try {
+        await addDoc(collection(db, "reports"), {
+          mediaId,
+          reason,
+          reportedAt: serverTimestamp()
+        });
+        alert("Report submitted. Thank you!");
+      } catch (e) {
+        alert("Failed to submit report.");
+        console.error(e);
+      }
+    };
 
-    filterMovies.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentTypeFilter = "movie";
-      genreFilters.style.display = "flex";
-      filterAndRender();
-    });
-
-    filterSeries.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentTypeFilter = "series";
-      genreFilters.style.display = "flex";
-      filterAndRender();
-    });
-
-    filterMusic.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentTypeFilter = "music";
-      genreFilters.style.display = "none";
-      filterAndRender();
-    });
-
-    searchInput.addEventListener("input", filterAndRender);
-    subscribeMedia();
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      menuToggle.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
-    });
-
-    document.querySelectorAll("#navLinks a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuToggle.textContent = "☰";
-      });
-    });
+    loadMedia();
   </script>
-  <script>
-  window.addEventListener('load', function () {
-    const popup = document.getElementById('welcomePopup');
-    popup.style.display = 'block';
-    
-    setTimeout(() => {
-      popup.style.display = 'none';
-    }, 6000); 
-  });
-  </script>
-  </body>
+</body>
 </html>
