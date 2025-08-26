@@ -49,7 +49,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Added for Music Mode Toggle button */
+    
     .mode-toggle {
       background: #007bff;
       color: white;
@@ -175,7 +175,7 @@
     </div>
 
     <div id="contentGrid" aria-live="polite" aria-label="Content List">
-      <!-- Cards go here -->
+      <!-- Cards -->
     </div>
 
     <!-- welcome popup -->
@@ -238,10 +238,9 @@
 
     modeToggleBtn.addEventListener("click", () => {
       isMusicMode = !isMusicMode;
-      modeToggleBtn.textContent = isMusicMode ? "⬅️ Main Mode" : "🎵 Music Mode";
+      modeToggleBtn.textContent = isMusicMode ? "⬅️ Main Mode" : "🎵 Audi Mode";
 
-      if (isMusicMode) {
-        // Show only Request and About Us menu items
+      if (isMusicMode)  
         filterAll.style.display = "none";
         filterMovies.style.display = "none";
         filterSeries.style.display = "none";
@@ -250,11 +249,11 @@
         genreFilters.style.display = "none";
         currentTypeFilter = "music";
       } else {
-        // Show all menu items except Music (remove music from nav as requested)
+        
         filterAll.style.display = "inline-block";
         filterMovies.style.display = "inline-block";
         filterSeries.style.display = "inline-block";
-        filterMusic.style.display = "inline-block"; // Keep for filtering but hidden later via CSS or you can hide it here if you want
+        filterMusic.style.display = "inline-block"; 
 
         genreFilters.style.display = "flex";
         currentTypeFilter = "all";
@@ -282,7 +281,7 @@
       let filtered = mediaData.filter(m => {
         const matchesTitle = m.title.toLowerCase().includes(searchVal);
 
-        // If music mode, only show music items, else show all except music
+      
         if (isMusicMode) {
           if (m.type !== "music") return false;
         } else {
@@ -338,7 +337,7 @@
         const title = document.createElement("h3");
         title.className = "card-title";
 
-        // Show artist and title if it's music mode
+        // Showing artist and title if it's music mode
         if (item.type === "music") {
           title.textContent = `${item.artist || "Unknown Artist"} — ${item.title}`;
         } else {
