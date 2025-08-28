@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Professional CV Maker</title>
+
+<!-- html2pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+<style>
+:root{
+  --ink:#111;
+  --muted:#666;
+  --line:#d9d9d9;
+  --accent:#0a66c2;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  color:var(--ink);
+  padding:18px;
+}
+h1,h2,h3{margin:0}
+.app{
+  display:flex; gap:20px; flex-wrap:wrap;
+}
+.panel{
+  background:#fff; border-radius:10px; padding:16px 16px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.form{flex:1 1 420px; max-width:900px}
+.preview{flex:1 1 420px; max-width:900px}
+
+label{display:block; margin:10px 0 6px; font-weight:700}
+input, textarea, select{
+  width:100%; padding:10px; border:1px solid #cfd6e4; border-radius:8px; font-size:14px;
+  background:#fff;
+}
+textarea{min-height:72px; resize:vertical}
+
+.row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.row-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px}
+
+.actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+button{
+  border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700;
+}
+.primary{background:var(--accent); color:#fff}
+.ghost{background:#eef4fb; color:var(--accent)}
+
+.cv-page{
+  width:210mm; min-height:297mm; margin:0 auto; background:#fff; color:#000;
+  padding:20mm 16mm; border:1px solid #e9edf2; border-radius:10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size:12pt;
+  line-height:1.5;
+}
+.cv-title{
+  text-align:center; font-size:22pt; font-weight:800; margin-bottom:4px;
+}
+.cv-topline{
+  text-align:center; font-size:14pt; margin-bottom:18px; font-style:italic;
+}
+.cv-section{
+  margin-top:16px; page-break-inside: avoid;
+}
+.cv-section h3{
+  font-size:13pt; font-weight:bold; text-transform:uppercase;
+  border-bottom:1px solid var(--line); padding-bottom:4px; margin-bottom:6px;
+}
+
+.kv{display:grid; grid-template-columns:200px 1fr; gap:10px; margin:6px 0}
+.kv .k{font-weight:700; color:#333}
+.list{margin:0; padding-left:18px}
+.list li{margin:4px 0}
+.prewrap{white-space:pre-line}
+.small{font-size:12px; color:var(--muted)}
+.muted{color:var(--muted)}
+
+.page-break{page-break-before:always}
+@media print {
+  body{background:#fff; padding:0}
+  .cv-page{border:none; border-radius:0}
+}
+</style>
+</head>
+<body>
+<h2 style="margin:4px 0 14px">Professional CV Maker</h2>
+<div class="app">
+  <!-- FORM -->
+  <div class="panel form">
+    <h3 style="margin-bottom:8px">Fill Your Details</h3>
+
+    <label>Full Name</label>
+    <input id="name" placeholder="e.g., Full nme"/>
+
+    <div class="row">
+      <div>
+        <label>Email</label>
+        <input id="email" placeholder="name@email.com"/>
+      </div>
+      <div>
+        <label>Phone (separate with ;) </label>
+        <input id="phones" placeholder="+265 99x xxx xxx; +265 88x xxx xxx"/>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h3>Addresses</h3>
+      <div class="row">
+        <div>
+          <label>Home Address</label>
+          <textarea id="homeAddress"></textarea>
+        </div>
+        <div>
+          <label>Residential Address</label>
+          <textarea id="residentialAddress"></textarea>
+        </div>
+      </div>
+      <label>Contact Address</label>
+      <input id="contactAddress"/>
+    </div>
+
+    <div class="cv-section">
+      <h3>Personal Particulars</h3>
+      <div class="row">
+        <div>
+          <label>Last Name</label>
+          <input id="lastName"/>
+        </div>
+        <div>
+          <label>First Name</label>
+          <input id="firstName"/>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Marital Status</label>
+          <select id="marital">
+            <option value="">Select Status</option>
+            <option>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+            <option>Widowed</option>
+          </select>
+        </div>
+        <div>
+          <label>Date of Birth</label>
+          <input type="date" id="dob"/>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Gender</label>
+          <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div>
+          <label>Nationality</label>
+          <select id="nationality">
+            <option value="">Select Nationality</option>
+            <option>Malawian</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Home District</label>
+          <select id="homePlace">
+            <option value="">Select Home</option>
+            <option>Blantyre</option>
+            <option>Chikwawa</option>
+            <option>Chiradzulu</option>
+            <option>Chitipa</option>
+            <option>Dedza</option>
+            <option>Dowa</option>
+            <option>Karonga</option>
+            <option>Kasungu</option>
+            <option>Likoma</option>
+            <option>Lilongwe</option>
+            <option>Machinga</option>
+            <option>Mangochi</option>
+            <option>Mzimba</option>
+            <option>Mzuzu</option>
+            <option>Mchinji</option>
+            <option>Mulanje</option>
+            <option>Nkhotakota</option>
+            <option>Nkhatabay</option>
+            <option>Nsanje</option>
+            <option>Ntcheu</option>
+            <option>Ntchisi</option>
+            <option>Phalombe</option>
+            <option>Rumphi</option>
+            <option>Salima</option>
+            <option>Thyolo</option>
+            <option>Zomba</option>
+          </select>
+        </div>
+        <div>
+          <label>Residence District</label>
+          <select id="residencePlace">
+            <option value="">Select Residence</option>
+            <option>Blantyre</option>
+            <option>Chikwawa</option>
+            <option>Chiradzulu</option>
+            <option>Chitipa</option>
+            <option>Dedza</option>
+            <option>Dowa</option>
+            <option>Karonga</option>
+            <option>Kasungu</option>
+            <option>Likoma</option>
+            <option>Lilongwe</option>
+            <option>Machinga</option>
+            <option>Mangochi</option>
+            <option>Mzimba</option>
+            <option>Mzuzu</option>
+            <option>Mchinji</option>
+            <option>Mulanje</option>
+            <option>Nkhotakota</option>
+            <option>Nkhatabay</option>
+            <option>Nsanje</option>
+            <option>Ntcheu</option>
+            <option>Ntchisi</option>
+            <option>Phalombe</option>
+            <option>Rumphi</option>
+            <option>Salima</option>
+            <option>Thyolo</option>
+            <option>Zomba</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Religion</label>
+          <select id="religion">
+            <option value="">Select Religion</option>
+            <option>Christianity</option>
+            <option>Islam</option>
+            <option>Hinduism</option>
+            <option>Buddhism</option>
+            <option>Traditional African Religion</option>
+            <option>None</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Languages (one per line)</label>
+      <textarea id="languages" placeholder="English&#10;Chichewa"></textarea>
+
+<label>Career Objective (multi-line supported)</label>
+<textarea id="objective" placeholder="Write your career objective here..."></textarea>
+
+<label>Education (one entry per line)</label>
+<textarea id="education" placeholder="· Certificate Earned: Malawi school certificate of education (MSCE):
+· Address: Muloza Secondary School, P.O Box 46, Mitundu, Lilongwe
+· Institution: Chiseka Secondary School"></textarea>
+
+<label>Personal Skills (one per line)</label>
+<textarea id="skills" placeholder="Bush welder&#10;Automobile mechanics&#10;Microsoft Word, Excel, PowerPoint&#10;Teamwork and organization"></textarea>
+
+<label>Hobbies (one per line)</label>
+<textarea id="hobbies" placeholder="Reading spiritual books&#10;Writing poems and stories&#10;Exploring new things"></textarea>
+
+<label>Declaration (optional)</label>
+<textarea id="declaration" placeholder="I solemnly declare that the above information is correct to the best of my knowledge and belief."></textarea>
+
+<label>Reference(s) (one per line)</label>
+<textarea id="reference" placeholder="Sir Magaleta — Deputy Headteacher, Muloza Secondary School — +265 99x xxx xxx"></textarea>
+
+<div class="actions">
+  <button class="primary" onclick="generateCV()">Preview CV</button>
+  <button class="ghost" onclick="downloadPDF()">Download as PDF</button>
+  <button class="ghost" onclick="clearForm()">Clear</button>
+</div>
+<p class="small muted">Tip: For lists (Education, Skills, Hobbies, Languages, References) put each item on its own line. The preview and PDF will show them as separate points.</p>
+</div>
+
+<!-- PREVIEW PANEL -->
+<div class="panel preview">
+  <h3 style="margin-bottom:8px">CV Preview</h3>
+  <div id="cv-preview" class="cv-page">
+    <div class="small muted">Fill the form on the left and click “Preview CV”.</div>
+  </div>
+  <div class="actions">
+    <button class="primary" onclick="downloadPDF()">Download as PDF</button>
+  </div>
+</div>
+</div>
+
+<script>
+// Escape HTML
+const esc = (s) => (s || "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const lines = (s) => (s || "").split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+const listHTML = (s) => {
+  const items = lines(s);
+  if (!items.length) return "";
+  return `<ul class="list">` + items.map(li => `<li>${esc(li)}</li>`).join("") + `</ul>`;
+};
+const joinPhones = (s) => lines(s).length ? lines(s).join(" / ") : esc(s);
+
+function generateCV(){
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phones = document.getElementById("phones").value;
+
+  const homeAddress = document.getElementById("homeAddress").value;
+  const residentialAddress = document.getElementById("residentialAddress").value;
+  const contactAddress = document.getElementById("contactAddress").value;
+
+  const lastName = document.getElementById("lastName").value;
+  const firstName = document.getElementById("firstName").value;
+  const marital = document.getElementById("marital").value;
+  const dob = document.getElementById("dob").value;
+  const gender = document.getElementById("gender").value;
+  const nationality = document.getElementById("nationality").value;
+  const languages = document.getElementById("languages").value;
+  const religion = document.getElementById("religion").value;
+  const homePlace = document.getElementById("homePlace").value;
+  const residencePlace = document.getElementById("residencePlace").value;
+
+  const objective = document.getElementById("objective").value;
+  const education = document.getElementById("education").value;
+  const skills = document.getElementById("skills").value;
+  const hobbies = document.getElementById("hobbies").value;
+  const declaration = document.getElementById("declaration").value;
+  const reference = document.getElementById("reference").value;
+
+  const ppRows = [
+    ["Last Name:", esc(lastName)],
+    ["First Name:", esc(firstName)],
+    ["Marital status:", esc(marital)],
+    ["Date of Birth:", esc(dob)],
+    ["Gender:", esc(gender)],
+    ["Nationality:", esc(nationality)],
+    ["Languages:", lines(languages).join(", ")],
+    ["Religion:", esc(religion)],
+    ["Home:", esc(homePlace)],
+    ["Residence:", esc(residencePlace)]
+  ].filter(row => row[1]);
+
+  const ppHTML = ppRows.length
+    ? ppRows.map(([k,v]) => `<div class="kv"><div class="k">${k}</div><div>${v}</div></div>`).join("")
+    : "";
+
+  const addressesHTML = `
+    ${homeAddress ? `<div class="kv"><div class="k">Home Address:</div><div>${esc(homeAddress)}</div></div>` : ""}
+    ${residentialAddress ? `<div class="kv"><div class="k">Residential Address:</div><div>${esc(residentialAddress)}</div></div>` : ""}
+    ${contactAddress ? `<div class="kv"><div class="k">Contact Address:</div><div>${esc(contactAddress)}</div></div>` : ""}
+    ${phones ? `<div class="kv"><div class="k">Telephone Mobile:</div><div>${esc(joinPhones(phones))}</div></div>` : ""}
+    ${email ? `<div class="kv"><div class="k">Email:</div><div>${esc(email)}</div></div>` : ""}
+  `;
+
+  document.getElementById("cv-preview").innerHTML = `
+    <div class="cv-title">CURRICULUM VITAE</div>
+    <div class="cv-topline">${esc(name || "")}</div>
+
+    <div class="cv-section">
+      <h3>ADDRESSES</h3>
+      ${addressesHTML}
+    </div>
+
+    <div class="cv-section">
+      <h3>CAREER OBJECTIVE</h3>
+      ${objective ? `<p class="prewrap">${esc(objective)}</p>` : ""}
+    </div>
+
+    <div class="cv-section">
+      <h3>PERSONAL PARTICULARS</h3>
+      ${ppHTML || `<div class="small muted">No personal particulars provided.</div>`}
+    </div>
+
+    <div class="cv-section">
+      <h3>EDUCATION</h3>
+      ${listHTML(education) || `<div class="small muted">No education entries.</div>`}
+    </div>
+
+    <div class="cv-section">
+      <h3>PERSONAL SKILLS</h3>
+      ${listHTML(skills) || `<div class="small muted">No skills provided.</div>`}
+    </div>
+
+    <div class="cv-section">
+      <h3>HOBBIES</h3>
+      ${listHTML(hobbies) || `<div class="small muted">No hobbies provided.</div>`}
+    </div>
+
+    ${declaration ? `
+      <div class="cv-section">
+        <h3>DECLARATION</h3>
+        <p class="prewrap">${esc(declaration)}</p>
+      </div>` : ""}
+
+    <div class="cv-section">
+      <h3>REFERENCE</h3>
+      ${listHTML(reference) || `<div class="small muted">No references provided.</div>`}
+    </div>
+  `;
+}
+
+function downloadPDF(){
+  if (!document.getElementById("cv-preview").innerText.trim()) generateCV();
+  const element = document.getElementById("cv-preview");
+  html2pdf().set({
+    margin: [10,10,10,10],
+    filename: 'My_CV.pdf',
+    image: { type:'jpeg', quality:0.98 },
+    html2canvas: { scale:2, useCORS:true },
+    jsPDF: { unit:'mm', format:'a4', orientation:'portrait' },
+    pagebreak: { mode:['css','legacy'] }
+  }).from(element).save();
+}
+
+function clearForm(){
+  document.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
+  document.getElementById("cv-preview").innerHTML =
+    `<div class="small muted">Fill the form on the left and click “Preview CV”.</div>`;
+}
+</script>
+</body>
+</html>
