@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>JGAstream:CV Maker</title>
+<title>MWtether CV Maker</title>
 
 <!-- html2pdf -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -88,13 +88,13 @@ button{
 </style>
 </head>
 <body>
-<h2 style="margin:4px 0 14px">JGAstream_ print your CV</h2>
+<h2 style="margin:4px 0 14px">JGA_MWtether CV</h2>
 <div class="app">
   <!-- FORM -->
   <div class="panel form">
     <h3 style="margin-bottom:8px">Fill Your Details</h3>
 
-    <label>Full Name</label>
+    <label>Full Name (optional)</label>
     <input id="name" placeholder="e.g., Full nme"/>
 
     <div class="row">
@@ -408,7 +408,7 @@ function downloadPDF(){
   const element = document.getElementById("cv-preview");
   html2pdf().set({
     margin: [10,10,10,10],
-    filename: 'My_CV.pdf',
+    filename: 'CV MWTether.pdf',
     image: { type:'jpeg', quality:0.98 },
     html2canvas: { scale:2, useCORS:true },
     jsPDF: { unit:'mm', format:'a4', orientation:'portrait' },
