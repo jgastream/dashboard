@@ -84,7 +84,37 @@
 }
 #fbBtn:hover { transform: scale(1.05); }
 
+
 	  
+.slider {
+      
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .slide-track {
+      display: inline-block;
+      animation: scroll 15s linear infinite;
+    }
+
+    .slide-text {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #007bff;
+      padding-right: 3rem; /* space between repeats */
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+	}  
   </style>
 </head>
 
@@ -108,6 +138,12 @@
     </nav>
   </header>  
   <main>
+	    <div class="slider">
+    <div class="slide-track">
+      <span class="slide-text">Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.</span>
+      <span class="slide-text">Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.</span>
+    </div>
+		</div>
     <div id="searchBar">
       <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" />
     </div>
@@ -212,8 +248,7 @@
       display: none;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     ">
-      <strong>Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.
-      </strong>
+      
     </div>
 	  
 <button id="fbBtn">Follow on Facebook</button>
@@ -449,17 +484,7 @@
         menuToggle.textContent = "☰";
       });
     });
-  </script>
-  <script>
-  window.addEventListener('load', function () {
-    const popup = document.getElementById('welcomePopup');
-    popup.style.display = 'block';
-    
-    setTimeout(() => {
-      popup.style.display = 'none';
-    }, 6000); 
-  });
-
+  
 	  // Facebook Button (Mobile App + Web)
 document.getElementById("fbBtn").addEventListener("click", () => {
   const fbPageID = "111740688597772"; 
