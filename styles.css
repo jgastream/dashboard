@@ -379,3 +379,22 @@ main {
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
 }
+/* Facebook Button */
+#fbBtn {
+  position: fixed;
+  bottom:130px; /* above music & share buttons */
+  right: 20px;
+  background: #1877f2; /* Facebook Blue */
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+#fbBtn:hover { transform: scale(1.05); }
+  
