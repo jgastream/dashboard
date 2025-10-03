@@ -84,24 +84,3 @@
       h1 { font-size: 1.4rem; }
       .description, .meta { font-size: 0.95rem; }
 }
-/* Facebook Button */
-#fbBtn {
-  position: fixed;
-  bottom:130px;
-  right: 20px;
-  background: #1877f2;
-  color: white;
-  padding: 12px 20px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 2000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s;
-}
-#fbBtn:hover { transform: scale(1.05); }
-
-
-    
