@@ -195,6 +195,9 @@
       <strong>Click the request button to ask for your favorite movie or series, and we’ll upload it shortly.
       </strong>
     </div>
+	  
+<button id="fbBtn">Follow on Facebook</button>
+	  
   </main>  
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
@@ -436,6 +439,26 @@
       popup.style.display = 'none';
     }, 6000); 
   });
+
+	  // Facebook Button (Mobile App + Web)
+document.getElementById("fbBtn").addEventListener("click", () => {
+  const fbPageID = "111740688597772"; 
+  const fbWebURL = "https://www.facebook.com/transcribed tales "; 
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if(isMobile){
+    
+    window.location.href = `fb://page/${fbPageID}`;
+    
+    setTimeout(() => {
+      window.open(fbWebURL, "_blank");
+    }, 1500);
+  } else {
+    // Desktop browser
+    window.open(fbWebURL, "_blank");
+  }
+});
   </script>
 	
 </body>
